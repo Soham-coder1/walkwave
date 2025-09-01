@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Store - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #d9e8ff);
+    }
+
+    .container-auth {
+      background: #f3efef;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      width: 900px;
+      max-width: 100%;
+      min-height: 500px;
+      display: flex;
+      margin: 50px auto;
+    }
+
+    .form-container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transition: all 0.6s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      opacity: 1;
+    }
+
+    .sign-in-container {
+      left: 0;
+      z-index: 2;
+    }
+
+    .sign-up-container {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .container-auth.right-panel-active .sign-in-container {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .container-auth.right-panel-active .sign-up-container {
+      transform: translateX(100%);
+      opacity: 1;
+      z-index: 5;
+      animation: fadeIn 0.8s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    form {
+      background: #f8f6f6;
+      display: flex;
+      flex-direction: column;
+      padding: 0 50px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    form h1 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    form input {
+      background: #f0f0f0;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    form input:focus {
+      background: #e6f0ff;
+      outline: none;
+      box-shadow: 0 0 5px #002c5f;
+    }
+
+    form button {
+      border-radius: 20px;
+      border: none;
+      background: #002c5f;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 12px 45px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    form button:hover {
+      background: #014080;
+      transform: scale(1.05);
+    }
+
+    .overlay-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
+      z-index: 100;
+    }
+
+    .container-auth.right-panel-active .overlay-container {
+      transform: translateX(-100%);
+    }
+
+    .overlay {
+      background: linear-gradient(135deg, #5a0099, #7a00cc);
+      color: #fff;
+      color: #fff;
+      position: relative;
+      left: -100%;
+      height: 100%;
+      width: 200%;
+      transform: translateX(0);
+      transition: transform 0.6s ease-in-out;
+      display: flex;
+    }
+
+    .container-auth.right-panel-active .overlay {
+      transform: translateX(50%);
+    }
+
+    .overlay-panel {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+      text-align: center;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-left {
+      transform: translateX(-20%);
+      left: 0;
+    }
+
+    .container-auth.right-panel-active .overlay-left {
+      transform: translateX(0);
+    }
+
+    .overlay-right {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    .container-auth.right-panel-active .overlay-right {
+      transform: translateX(20%);
+    }
+
+    .overlay-panel button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 12px 45px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .overlay-panel button:hover {
+      background: #fff;
+      color: #002c5f;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Login / Signup Animated Section -->
+  <section class="login-section py-5">
+    <div class="container-auth" id="container">
+      <div class="form-container sign-up-container">
+        <form id="registerForm">
+          <h1>Create Account</h1>
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form id="loginForm">
+          <h1>Sign In</h1>
+          <input type="email" placeholder="Email" id="email" required />
+          <input type="password" placeholder="Password" id="password" required />
+          <a href="#">Forgot your password?</a>
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p>&copy; 2023 Shoe Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    if (signUpButton && signInButton && container) {
+      signUpButton.addEventListener('click', () => container.classList.add("right-panel-active"));
+      signInButton.addEventListener('click', () => container.classList.remove("right-panel-active"));
+    }
+
+    // Only run if defined elsewhere
+    if (typeof updateCart === "function") {
+      updateCart();
+    }
+
+    // ------------------------
+    // Signup
+    // ------------------------
+    document.getElementById("registerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = e.target.querySelector("input[placeholder='Name']").value;
+      const email = e.target.querySelector("input[placeholder='Email']").value;
+      const password = e.target.querySelector("input[placeholder='Password']").value;
+
+      const res = await fetch("http://localhost:5000/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "dashboard.html"
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    });
+
+    // ------------------------
+    // Login
+    // ------------------------
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "dashboard.html"
+      } else {
+        alert(data.message || "Login failed");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

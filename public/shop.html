@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Shoe Box - Premium Footwear Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex items-center justify-between py-4">
+             <a href="dashboard.html" class="flex items-center space-x-2">
+                <!-- Round Logo Image -->
+                <img src="./assets/walkwavelogo.jpg" alt="WALKwave Logo" class="h-10 w-10 object-cover rounded-full">
+
+                <!-- Logo Text -->
+                <h1 class="text-2xl font-bold text-gray-800">
+                    WALK<span class="text-blue-600">wave</span>
+                </h1>
+            </a>
+
+            <div class="flex-1 mx-4 hidden md:flex">
+                <input type="text" placeholder="Search for shoes, brands, styles..."
+                    class="w-full border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="dashboard.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                <a href="terms.html" class="text-gray-700 hover:text-blue-600 transition-colors">Terms</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Sign In</a>
+                <a href="orders.html" class="text-gray-700 hover:text-blue-600 transition-colors">My Orders</a>
+                <button onclick="openCart()"
+                    class="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl mr-2"></i>
+                    Cart (<span id="cartCount">0</span>)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Category Filter -->
+    <div class="container mx-auto px-4 text-center mt-8">
+        <button class="category-btn bg-blue-600 text-white px-4 py-2 rounded-lg mx-2" data-category="all">All</button>
+        <button class="category-btn bg-blue-600 text-white px-4 py-2 rounded-lg mx-2" data-category="men">Men</button>
+        <button class="category-btn bg-blue-600 text-white px-4 py-2 rounded-lg mx-2"
+            data-category="women">Women</button>
+        <button class="category-btn bg-blue-600 text-white px-4 py-2 rounded-lg mx-2" data-category="kids">Kids</button>
+    </div>
+
+    <!-- Products -->
+    <section id="products" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- MEN PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/collection1.png" alt="Urban Runner" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Urban Runner Pro</h3>
+                        <p class="text-gray-600 mb-2">Comfortable everyday sneakers for men</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$129.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-1" data-name="Urban Runner Pro" data-price="129.99"
+                                data-image="./assets/collection1.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/featured1.png" alt="Winter Explorer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Winter Explorer</h3>
+                        <p class="text-gray-600 mb-2">Warm and waterproof boots for men</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$159.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-2" data-name="Winter Explorer" data-price="159.99"
+                                data-image="./assets/featured1.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WOMEN PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/featured2.png" alt="Summer Breeze" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Summer Breeze</h3>
+                        <p class="text-gray-600 mb-2">Comfortable sandals for women</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$69.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-1" data-name="Summer Breeze" data-price="69.99"
+                                data-image="./assets/featured2.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/featured3.png" alt="Executive Heels" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Executive Heels</h3>
+                        <p class="text-gray-600 mb-2">Elegant heels for women</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$189.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-2" data-name="Executive Heels" data-price="189.99"
+                                data-image="./assets/featured3.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KIDS PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/logo.png" alt="Mini Runner" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Mini Runner</h3>
+                        <p class="text-gray-600 mb-2">Comfortable sneakers for kids</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$79.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-1" data-name="Mini Runner" data-price="79.99"
+                                data-image="./assets/logo.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/new1.png" alt="Tiny Explorer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Tiny Explorer</h3>
+                        <p class="text-gray-600 mb-2">Warm boots for kids</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$89.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-2" data-name="Tiny Explorer" data-price="89.99"
+                                data-image="./assets/new1.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORE MEN PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/speedstar.jpeg" alt="Speedster" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Speedster</h3>
+                        <p class="text-gray-600 mb-2">Lightweight running shoes</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$119.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-3" data-name="Speedster" data-price="119.99"
+                                data-image="./assets/men2.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/TrailBlazer.jpeg" alt="Trail Blazer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Trail Blazer</h3>
+                        <p class="text-gray-600 mb-2">Outdoor hiking shoes</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$149.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-4" data-name="Trail Blazer" data-price="149.99"
+                                data-image="./assets/men3.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/ClassicLoafers.jpeg" alt="Classic Loafers" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Classic Loafers</h3>
+                        <p class="text-gray-600 mb-2">Elegant casual loafers</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$139.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-5" data-name="Classic Loafers" data-price="139.99"
+                                data-image="./assets/men4.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="men">
+                    <img src="./assets/UrbanSneakers.jpeg" alt="Urban Sneakers" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Urban Sneakers</h3>
+                        <p class="text-gray-600 mb-2">Stylish city sneakers</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$124.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="men-6" data-name="Urban Sneakers" data-price="124.99"
+                                data-image="./assets/men5.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORE WOMEN PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/ChicFlats.jpeg" alt="Chic Flats" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Chic Flats</h3>
+                        <p class="text-gray-600 mb-2">Comfortable flats for daily wear</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$79.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-3" data-name="Chic Flats" data-price="79.99"
+                                data-image="./assets/women2.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/ElegantPumps.jpg" alt="Elegant Pumps" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Elegant Pumps</h3>
+                        <p class="text-gray-600 mb-2">Stylish pumps for office wear</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$129.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-4" data-name="Elegant Pumps" data-price="129.99"
+                                data-image="./assets/women3.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/SummerSandals.jpeg" alt="Summer Sandals" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Summer Sandals</h3>
+                        <p class="text-gray-600 mb-2">Lightweight sandals for summer</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$89.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-5" data-name="Summer Sandals" data-price="89.99"
+                                data-image="./assets/women4.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="women">
+                    <img src="./assets/PartyHeels.jpeg" alt="Party Heels" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Party Heels</h3>
+                        <p class="text-gray-600 mb-2">Elegant heels for parties</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$139.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="women-6" data-name="Party Heels" data-price="139.99"
+                                data-image="./assets/women5.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORE KIDS PRODUCTS -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/TinyRunners.jpeg" alt="Tiny Runners" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Tiny Runners</h3>
+                        <p class="text-gray-600 mb-2">Lightweight sneakers for kids</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$69.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-3" data-name="Tiny Runners" data-price="69.99"
+                                data-image="./assets/kids2.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/JuniorExplorer.jpeg" alt="Junior Explorer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Junior Explorer</h3>
+                        <p class="text-gray-600 mb-2">Durable boots for kids</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$84.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-4" data-name="Junior Explorer" data-price="84.99"
+                                data-image="./assets/kids3.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/MiniTrekker.jpeg" alt="Mini Trekker" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Mini Trekker</h3>
+                        <p class="text-gray-600 mb-2">Perfect boots for little adventurers</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$94.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-5" data-name="Mini Trekker" data-price="94.99"
+                                data-image="./assets/kids4.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl"
+                    data-category="kids">
+                    <img src="./assets/LittleSprinter.jpeg" alt="Little Sprinter" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">Little Sprinter</h3>
+                        <p class="text-gray-600 mb-2">Sneakers for playful kids</p>
+                        <label class="font-medium mb-2">Size:</label>
+                        <select class="border rounded-lg px-3 py-2 mb-4 size-selector">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$74.99</span>
+                            <button
+                                class="add-to-cart bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                                data-id="kids-6" data-name="Little Sprinter" data-price="74.99"
+                                data-image="./assets/kids5.png">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
+            <button onclick="closeCart()"
+                class="absolute top-2 right-2 text-gray-600 hover:text-gray-900">&times;</button>
+            <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+            <div id="cartItems" class="space-y-3"></div>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="font-bold text-lg">Total: $<span id="cartTotal">0.00</span></span>
+                <button onclick="openCheckout()"
+                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal"
+        class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
+            <button onclick="closeCheckout()"
+                class="absolute top-2 right-2 text-gray-600 hover:text-gray-900">&times;</button>
+            <h2 class="text-2xl font-bold mb-4">Checkout (COD)</h2>
+            <form id="checkoutForm" class="space-y-4">
+                <input type="text" id="name" placeholder="Full Name" class="w-full border px-3 py-2 rounded" required>
+                <input type="email" id="email" placeholder="Email" class="w-full border px-3 py-2 rounded" required>
+                <input type="text" id="address" placeholder="Address" class="w-full border px-3 py-2 rounded" required>
+                <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                    Place Order (Cash on Delivery)
+                </button>
+            </form>
+        </div>
+    </div>
+
+     <footer class="section-p1">
+        <div class="col">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Saltlake, kolkata-700156</p>
+            <p><strong>Phone:</strong> +91-9824513557 </p>
+            <P><strong>Hours:</strong> 10:00 - 18:00, Mon -Sat </P>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Primary Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Orders</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="assets/app.jpg" alt="">
+                <img src="assets/play.jpg" alt="">
+            </div>
+            <p>Secured Follow Link</p>
+            <img src="assets/pay.png" alt="">
+        </div>
+    </footer>
+    <footer class="bg-gray-100 py-4">
+        <div class="container mx-auto text-center text-white-600 text-sm">
+            &copy; 2025 WALKwave. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="shop.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
